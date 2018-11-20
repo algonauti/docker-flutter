@@ -1,0 +1,25 @@
+#!/bin/bash
+pushd ${ANDROID_HOME}
+echo "Download android-sdk"
+wget -q https://dl.google.com/android/repository/sdk-tools-linux-${ANDROID_VERSION}.zip -O sdk-tools-linux.zip \
+      && unzip sdk-tools-linux.zip \
+      && rm sdk-tools-linux.zip
+
+echo "Installing android-sdk packages"
+while read package; do
+  android-accept-licenses "sdkmanager ${package}"
+done < /etc/android-package-list.txt
+
+echo "Accepting android-sdk Licenses"
+android-accept-licenses "sdkmanager --licenses"
+popd
+
+echo "Download flutter-sdk"
+pushd ${FLUTTER_HOME}
+git init
+git pull --rebase https://github.com/flutter/flutter.git ${FLUTTER_VERSION}:refs/tags/${FLUTTER_VERSION}
+popd
+
+echo "Run flutter doctor"
+flutter config --no-analytics
+flutter doctor
