@@ -1,5 +1,4 @@
-build-tools;23.0.1
-emulator
+build-tools;24.0.3
 platform-tools
-platforms;android-23
+platforms;android-24
 tools
