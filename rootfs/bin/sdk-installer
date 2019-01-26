@@ -7,11 +7,11 @@ wget -q https://dl.google.com/android/repository/sdk-tools-linux-${ANDROID_VERSI
 
 echo "Installing android-sdk packages"
 while read package; do
-  android-accept-licenses "sdkmanager ${package}"
+  yes | sdkmanager ${package}
 done < /etc/android-package-list.txt
 
 echo "Accepting android-sdk Licenses"
-android-accept-licenses "sdkmanager --licenses"
+yes | sdkmanager --licenses
 popd
 
 echo "Download flutter-sdk"
