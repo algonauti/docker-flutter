@@ -54,7 +54,7 @@ ENV PATH ${PATH}:${ANDROID_HOME}/platform-tools:${ANDROID_HOME}/tools/bin:${ANDR
 # Configure Flutter ENV
 #
 ENV FLUTTER_HOME /opt/flutter-sdk
-ENV FLUTTER_VERSION v1.3.2
+ENV FLUTTER_VERSION v1.3.4
 
 ENV PATH ${PATH}:${FLUTTER_HOME}/bin:${FLUTTER_HOME}/bin/cache/dart-sdk/bin
 
