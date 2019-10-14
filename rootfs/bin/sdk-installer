@@ -10,16 +10,11 @@ while read package; do
   yes | sdkmanager ${package}
 done < /etc/android-package-list.txt
 
-echo "Accepting android-sdk Licenses"
-yes | sdkmanager --licenses
-popd
-
 echo "Download flutter-sdk"
 pushd ${FLUTTER_HOME}
 git init
-git pull --rebase https://github.com/flutter/flutter.git ${FLUTTER_VERSION}:refs/tags/${FLUTTER_VERSION}
+git pull --quiet --rebase https://github.com/flutter/flutter.git ${FLUTTER_VERSION}:refs/tags/${FLUTTER_VERSION}
 popd
 
 echo "Run flutter doctor"
-flutter config --no-analytics
-flutter doctor
+(yes | flutter doctor --android-licenses ) 2>/dev/null
