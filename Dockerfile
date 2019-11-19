@@ -1,12 +1,10 @@
 FROM ubuntu:18.04
 
-ENV DEBIAN_FRONTEND noninteractive
-
 #
 # Install required tools
 # Dependencies to execute Android builds
 #
-RUN dpkg --add-architecture i386 && apt-get update -yqq && apt-get install -y \
+RUN dpkg --add-architecture i386 && apt-get update -yqq && DEBIAN_FRONTEND=noninteractive apt-get install -y \
   curl \
   expect \
   git \
