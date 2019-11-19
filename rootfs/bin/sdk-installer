@@ -1,4 +1,5 @@
 #!/bin/bash
+
 pushd ${ANDROID_HOME}
 echo "Download android-sdk"
 wget -q https://dl.google.com/android/repository/sdk-tools-linux-${ANDROID_VERSION}.zip -O sdk-tools-linux.zip \
