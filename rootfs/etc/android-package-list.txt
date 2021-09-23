@@ -1,4 +1,5 @@
-build-tools;24.0.3
+build-tools;29.0.3
 platform-tools
-platforms;android-24
+platforms;android-29
 tools
+cmdline-tools;latest
